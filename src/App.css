@@ -1,0 +1,17 @@
+.comparison-box {
+    max-width: 80%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+.google-search, .yahoo-search {
+    width: 50%;
+}
+.search-head {
+    margin: 0 0 25px;
+    font-size: 30px;
+    font-weight: 700;
+    color: #9e005d;
+    text-decoration: underline;
+}
