@@ -32,7 +32,8 @@ export default function GoogleSearch() {
       method: 'GET',
       url: 'https://bing-web-search1.p.rapidapi.com/search',
       params: {
-        q: `'${searchtext}'`,
+        q: `'${searchtext}'`,  
+        'responseFilter[0]': 'Webpages,RelatedSearches',         
         mkt: 'en-us',
         safeSearch: 'Off',
         textFormat: 'Raw',
@@ -76,7 +77,7 @@ export default function GoogleSearch() {
               {
                 googleresults.map((google) =>
                   <li>
-                    <a href='#'>
+                    <a href={google.url}>
                       <span>{google.url}</span>
                       <h2>{google.title}e</h2>
                     </a>
@@ -91,8 +92,8 @@ export default function GoogleSearch() {
             <ul>
               {
                 bingresults.map((bing) =>
-                  <li>
-                    <a href='#'>
+                  <li> 
+                    <a href={bing.url}>
                       <span>{bing.url}</span>
                       <h2>{bing.name}</h2>
                     </a>
