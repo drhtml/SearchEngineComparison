@@ -8,7 +8,7 @@ export default function GoogleSearch() {
   const [bingresults, setBingResults] = useState([]);
 
   function GoogleSearchAPI() {
-    console.log(searchtext);
+    //console.log(searchtext);
     const options = {
       method: 'GET',
       url: 'https://google-search74.p.rapidapi.com/',
@@ -27,7 +27,7 @@ export default function GoogleSearch() {
   }
 
   function BingSearchAPI() {
-    console.log(searchtext);
+    //console.log(searchtext);
     const options = {
       method: 'GET',
       url: 'https://bing-web-search1.p.rapidapi.com/search',
