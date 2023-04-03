@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/SearchEngineComparison/static/css/main.23e82bff.css",
+    "main.js": "/SearchEngineComparison/static/js/main.cba5e766.js",
+    "static/js/787.b3d79b74.chunk.js": "/SearchEngineComparison/static/js/787.b3d79b74.chunk.js",
+    "index.html": "/SearchEngineComparison/index.html",
+    "main.23e82bff.css.map": "/SearchEngineComparison/static/css/main.23e82bff.css.map",
+    "main.cba5e766.js.map": "/SearchEngineComparison/static/js/main.cba5e766.js.map",
+    "787.b3d79b74.chunk.js.map": "/SearchEngineComparison/static/js/787.b3d79b74.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.23e82bff.css",
+    "static/js/main.cba5e766.js"
+  ]
+}
