@@ -33,7 +33,7 @@ export default function GoogleSearch() {
       url: 'https://bing-web-search1.p.rapidapi.com/search',
       params: {
         q: `'${searchtext}'`,  
-        'responseFilter[0]': 'Webpages,RelatedSearches',         
+        'responseFilter[0]': 'Webpages',         
         mkt: 'en-us',
         safeSearch: 'Off',
         textFormat: 'Raw',
