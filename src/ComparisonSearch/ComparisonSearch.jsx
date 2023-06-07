@@ -27,30 +27,29 @@ export default function GoogleSearch() {
   }
 
   function BingSearchAPI() {
-    //console.log(searchtext);
-    const options = {
-      method: 'GET',
-      url: 'https://bing-web-search1.p.rapidapi.com/search',
-      params: {
-        q: `'${searchtext}'`,  
-        'responseFilter[0]': 'Webpages',         
-        mkt: 'en-us',
-        safeSearch: 'Off',
-        textFormat: 'Raw',
-        freshness: 'Day'
-      },
-      headers: {
-        'X-BingApis-SDK': 'true',
-        'X-RapidAPI-Key': '708e3145abmshcae274586e3b04fp10b043jsn2d09253f8e7a',
-        'X-RapidAPI-Host': 'bing-web-search1.p.rapidapi.com'
+    let config = {
+      method: 'get',
+      maxBodyLength: Infinity,
+      url: `https://api.bing.microsoft.com/v7.0/search?q=${searchtext}`,
+      headers: { 
+        'Ocp-Apim-Subscription-Key': '253c31ab72be4fe89e84b7ab61899432'
       }
     };
-    axios.request(options).then(function (response) {
-      console.log(response.data.value);
-      setBingResults(response.data.value); 
-    }).catch(function (error) {
-      console.error(error);
-    });
+    
+    axios.request(config)
+    .then((response) => {
+      let result = response.data;
+      console.log(result);
+      let wpg = result.webPages.value;
+      let npg = result.news?.value === undefined ? [] : result.news.value;
+      let vpg = result.videos?.value === undefined ? [] : result.videos.value;
+      let bingdata = [...wpg, ...npg, ...vpg];
+      console.log(bingdata);
+      setBingResults(bingdata);
+    })
+    .catch((error) => {
+      console.log(error);
+    })
   }
 
   function SerchWeb() {
@@ -76,7 +75,7 @@ export default function GoogleSearch() {
             <ul>
               {
                 googleresults.map((google) =>
-                  <li>
+                  <li key={google.title}>
                     <a href={google.url}>
                       <span>{google.url}</span>
                       <h2>{google.title}e</h2>
@@ -92,7 +91,7 @@ export default function GoogleSearch() {
             <ul>
               {
                 bingresults.map((bing) =>
-                  <li> 
+                  <li key={bing.title}> 
                     <a href={bing.url}>
                       <span>{bing.url}</span>
                       <h2>{bing.name}</h2>
